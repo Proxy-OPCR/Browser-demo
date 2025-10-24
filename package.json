@@ -4,7 +4,7 @@
   "description": "URL入力・表示アプリ (Node.js/Express)",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "gunicorn main:app"
   },
   "dependencies": {
     "express": "^4.19.2"
