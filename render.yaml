@@ -1,0 +1,23 @@
+# Render Blueprintの設定バージョン
+version: "1"
+
+# サービス定義
+services:
+  # Web Service の定義
+  - type: web
+    # サービス名
+    name: simple-browser-app
+    # デプロイ元のGitリポジトリ（Renderに接続済みのもの）
+    repo: https://github.com/your-username/your-repo-name # ご自身のリポジトリURLに置き換えてください
+    # デプロイするブランチ
+    branch: main
+    # 環境: Python 3
+    env: python
+    # ビルドコマンド
+    buildCommand: pip install -r requirements.txt
+    # 起動コマンド (Gunicornを使用)
+    startCommand: gunicorn app:app
+    # 無料枠を使用 (無操作時にスピンダウンします)
+    plan: free
+    # 地域
+    region: oregon # 最適な地域を選択
