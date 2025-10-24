@@ -1,0 +1,14 @@
+{
+  "name": "simple-browser-node",
+  "version": "1.0.0",
+  "description": "URL入力・表示アプリ (Node.js/Express)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "author": "",
+  "license": "ISC"
+}
