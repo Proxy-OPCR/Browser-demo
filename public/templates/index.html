@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>埋め込み型シンプルブラウザ</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="header-container">
+        <h1>埋め込みブラウザ (iframe)</h1>
+        
+        <form method="POST" action="/" class="url-form">
+            <input type="text" name="urlInput" placeholder="https://www.example.com/ など">
+            <button type="submit">表示</button>
+        </form>
+    </div>
+
+    <div class="content-container">
+        {% if url_to_display %}
+            <p class="info-message">
+                現在、以下のURLを表示しようとしています:<br>
+                **{{ url_to_display }}**
+            </p>
+            <p class="warning-message">
+                **注意:** 多くのサイトはセキュリティ上の理由で埋め込みを拒否しています。表示されない場合は、そのサイトが埋め込みを許可していません。
+            </p>
+            <iframe src="{{ url_to_display }}" frameborder="0"></iframe>
+        {% else %}
+            <p class="initial-message">
+                上部のフォームにURLを入力して「表示」ボタンを押してください。
+            </p>
+        {% endif %}
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
